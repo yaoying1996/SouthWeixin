@@ -1,0 +1,45 @@
+package com.south.main;
+
+import java.io.IOException;
+import java.text.ParseException;
+
+import com.south.po.AccessToken;
+import com.south.util.WeixinUtil;
+
+import net.sf.json.JSONObject;
+
+public class WeixinMain {
+	public static void main(String[] args) throws ParseException {
+		AccessToken token=WeixinUtil.getAccessToken();
+		System.out.println("票据:"+token.getToken());
+		System.out.println("有效时间:"+token.getExpiresIn());
+		
+		//String path="C:\\Users\\Administrator\\Pictures\\Saved Pictures\\3.jpg";
+		
+		
+		try {
+			//创建菜单
+			String menu=JSONObject.fromObject(WeixinUtil.initMenu()).toString();
+			int result=WeixinUtil.createMenu(token.getToken(),menu);
+			if(result==0) {
+				System.out.println("创建菜单成功");
+			}else {
+				System.out.println("创建菜单失败，errorcode="+result);
+			}
+			JSONObject jsonObject=WeixinUtil.queryMenu(token.getToken());
+			System.out.println(jsonObject);
+			/*//删除菜单
+			int result=WeixinUtil.deleteMenu(token.getToken());
+			if(result==0) {
+				System.out.println("菜单删除成功");
+			}else {
+				System.out.println(result);
+			}*/
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

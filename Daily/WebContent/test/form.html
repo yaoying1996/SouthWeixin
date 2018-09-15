@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <title>我的日报</title> -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description"
+	content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../jQuery_WeUI/lib/weui.min.css">
+<link rel="stylesheet" href="../jQuery_WeUI/css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+
+</head>
+
+<body ontouchstart>
+	<!-- <div id="tab1"
+		class="weui-tab__bd-item weui-tab__bd-item--active weui-pull-to-refresh">
+		<div class="weui-pull-to-refresh__layer">
+			<div class='weui-pull-to-refresh__arrow'></div>
+			<div class='weui-pull-to-refresh__preloader'></div>
+			<div class="down">下拉刷新</div>
+			<div class="up">释放刷新</div>
+			<div class="refresh">正在刷新</div>
+		</div> -->
+		<header class='demos-header'>
+			<h1 class="demos-title">我的日报</h1>
+		</header>
+
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">时间</label>
+				</div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="datetime-local" value=""
+						placeholder="">
+				</div>
+			</div>
+			
+			<div class="weui-cell " >
+				<div class="weui-cell__hd">
+					<label class="weui-label">客户名称</label>
+				</div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="text" placeholder="请输入客户姓名">
+				</div>
+				<div class="weui-cell__ft">
+					<button class="weui-vcode-btn">获取联系人</button>
+				</div>
+			</div>
+			<div class="weui-cells weui-cells_form">
+			     <div class="weui-cell">
+			       <div class="weui-cell__hd"><label for="name" class="weui-label">联系人</label></div>
+			       <div class="weui-cell__bd">
+			         <input class="weui-input" id="contacts" type="text" value="">
+			       </div>
+			     </div>
+			</div>
+			
+			<div class="button_sp_area" align="center">
+		       <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">新增联系人</a>
+		       <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">刷新联系人</a>
+		    </div>
+		    
+		    <div class="weui-cells weui-cell_select">
+			     <div class="weui-cell">
+			       <div class="weui-cell__hd"><label for="name" class="weui-label">进展阶段</label></div>
+			       <div class="weui-cell__bd">
+			         <select class="weui-select" name="select1">
+						<option value="1">中国</option>
+						<option value="2">美国</option>
+						<option value="3">英国</option>
+					</select>
+			       </div>
+			     </div>
+			</div>
+			
+			<div class="weui-cell weui-cells_form">
+				<div class="weui-cell__hd">
+					<label class="weui-label">项目预算</label>
+				</div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="text" placeholder="请输入项目预算">
+				</div>
+			</div>
+			
+			<div class="weui-cell weui-cells_form">
+				<div class="weui-cell__hd">
+					<label class="weui-label">意向屏点</label>
+				</div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="text" placeholder="请输入意向屏点">
+				</div>
+			</div>
+			
+			<div class="weui-cell weui-cells_form">
+				<div class="weui-cell__hd">
+					<label class="weui-label">折扣</label>
+				</div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="text" placeholder="请输入折扣">
+				</div>
+			</div>
+		</div>
+		<div class="weui-cells__title"><font size="4" color="black">进展</font></div>
+	    <div class="weui-cells weui-cells_form">
+	      <div class="weui-cell">
+	        <div class="weui-cell__bd">
+	          <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+	          <div class="weui-textarea-counter"><span>0</span>/1000</div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="weui-cells__title"><font size="4" color="black">关键点、难点、及所需支持</font></div>
+	    <div class="weui-cells weui-cells_form">
+	      <div class="weui-cell">
+	        <div class="weui-cell__bd">
+	          <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+	          <div class="weui-textarea-counter"><span>0</span>/1000</div>
+	        </div>
+	      </div>
+	    </div>
+
+	
+		
+			<div class="weui-btn-area">
+				<a class="weui-btn weui-btn_primary" href="javascript:"
+					id="showTooltips">确定</a>
+			</div>
+		<!-- </div> -->
+
+	
+	<script src="../jQuery_WeUI/lib/jquery-2.1.4.js"></script>
+	<script src="../jQuery_WeUI/lib/fastclick.js"></script>
+	<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+	<script src="../jQuery_WeUI/js/jquery-weui.js"></script>
+
+
+	<script>
+/*刷新
+$('.weui-tab__bd-item').pullToRefresh().on('pull-to-refresh', function (done) {
+    var self = this
+    setTimeout(function() {
+      $(self).pullToRefreshDone();
+    }, 2000)
+  }) */
+$("#contacts").select({
+    title: "选择职业",
+    items: ["法官", "医生", "猎人", "学生", "记者", "其他"],
+    multi: true,
+    min: 1,
+    max: 10,
+    onChange: function(d) {
+      console.log(this, d);
+    },
+    onClose: function() {
+      console.log("close");
+    },
+    onOpen: function() {
+      console.log("open");
+    },
+  });
+
+</script>
+</body>
+</html>

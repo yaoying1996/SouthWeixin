@@ -1,0 +1,6 @@
+package com.south.util;
+
+public class WeixinUtil {
+
+	public  static final String token="7e4d215a9e121ac6";
+}

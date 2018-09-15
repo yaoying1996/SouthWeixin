@@ -1,0 +1,31 @@
+package com.south.test;
+
+import com.south.po.AccessToken;
+import com.south.util.WeixinUtil;
+
+import net.sf.json.JSONObject;
+
+public class wxTest {
+	 
+	public static void main(String[] args) {
+		// corpid为每个企业都拥有唯一的corpid，获取此信息可在管理后台“我的企业”－“企业信息”下查看（需要有管理员权限）
+		// corpsecret是企业应用里面用于保障数据安全的“钥匙”，每一个应用都有一个独立的访问密钥
+		
+		AccessToken token=WeixinUtil.getAccessToken();
+		System.out.println("票据:"+token.getToken());
+		System.out.println("有效时间:"+token.getExpiresIn());
+			
+		String messageText=MessageUtil.STextMsg("@all","@all", "@all", "text", MessageUtil.menuText());
+		int result = 0;
+		String url = WeixinUtil.MESSAGE_URL.replace("ACCESS_TOKEN", token.getToken());
+		JSONObject jsonObject = WeixinUtil.doPostStr(url, messageText);
+		if(jsonObject != null){
+			result = jsonObject.getInt("errcode");
+		}
+		
+		System.out.println(result);
+	}
+ 
+
+
+}

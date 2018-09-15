@@ -1,0 +1,49 @@
+package com.south.test;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import net.sf.json.JSONObject;
+
+public class wxTest {
+	 
+	public static void main(String[] args) {
+		// corpid为每个企业都拥有唯一的corpid，获取此信息可在管理后台“我的企业”－“企业信息”下查看（需要有管理员权限）
+		// corpsecret是企业应用里面用于保障数据安全的“钥匙”，每一个应用都有一个独立的访问密钥
+		
+		String corpid = "ww50f0bed8f991756a";
+		String corpsecret = "UiObd1WusYSXIWJWIUDHdycoUQryLqpce7nT0q4RqTo";
+		try {
+			String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" + corpid + "&corpsecret=" + corpsecret;
+			URL u = new URL(url);
+			HttpsURLConnection huconn = (HttpsURLConnection) u.openConnection();
+			BufferedReader in = null;
+			StringBuilder result = new StringBuilder();
+			huconn.connect();
+			in = new BufferedReader(new InputStreamReader(huconn.getInputStream(), "UTF-8"));
+			String line;
+			while ((line = in.readLine()) != null) {
+				result.append(line);
+			}
+			if (in != null) {
+				in.close();
+			}
+			// 打印返回结果
+			System.out.println("获取token----" + result);
+			// 返回结果为JSONObject格式，需要再做一步操作获取token
+			JSONObject myJsonObject = new JSONObject();
+			myJsonObject = JSONObject.fromObject(result.toString());
+			String token = myJsonObject.getString("access_token");
+			// 打印token
+			System.out.println("token----" + token);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+ 
+
+
+}

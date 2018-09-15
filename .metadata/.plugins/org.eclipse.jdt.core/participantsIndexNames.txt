@@ -1,0 +1,13 @@
+INDEX VERSION 1.130
+G:\weixin\weixinCrop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\420056590.index
+\Daily\src
+G:\weixin\weixinCrop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\866573882.index
+\Daily\src
+G:\weixin\weixinCrop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2041838046.index
+\Daily\src
+G:\weixin\weixinCrop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2277500033.index
+\Daily\src
+G:\weixin\weixinCrop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3733007282.index
+\Daily\src
+G:\weixin\weixinCrop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3651741488.index
+\Daily\src

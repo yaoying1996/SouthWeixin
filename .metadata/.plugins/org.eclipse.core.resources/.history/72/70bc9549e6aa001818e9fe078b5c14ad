@@ -1,0 +1,11 @@
+package com.south.util;
+
+public class WeixinUtil {
+
+	public  static final String token="7e4d215a9e121ac6";
+	
+	public static final String CORPID="ww50f0bed8f991756a";
+	public static final String CORPSECRET="UiObd1WusYSXIWJWIUDHdycoUQryLqpce7nT0q4RqTo";
+	public static final String ENCODINGAESKEY="R8bwW2vyATWMNpiz9NeSDVYI7aCWMsLgbxqEJXjrCDP";
+	
+}
